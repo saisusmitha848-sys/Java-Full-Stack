@@ -1,0 +1,26 @@
+body{
+    background-color: skyblue;
+}
+img{
+    animation : picture 10s ease-in-out 2s infinite;
+}
+@keyframes picture{
+    0%{
+        transform: transalate(10cm,10cm);
+        border-style: dashed;
+        border-width: 2cm;
+        border-color: red;
+    }
+    25%{
+        transform: translate(5cm,5cm);
+        border-style: solid;
+        border-width: 1cm;
+        border-color: blue;
+    }
+    50%{
+        transform: translate(3cm,3cm); 
+        border-style: dotted;
+        border-width: 0.5cm;
+        border-color: green;
+    }
+}
