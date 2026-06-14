@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Sai Susmitha</title>
+    <title>JARVIS.AI - Neural Interface</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Courier+Prime:wght@400;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -12,128 +14,231 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Courier Prime', monospace;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1629 100%);
             min-height: 100vh;
             padding: 20px;
+            color: #00d9ff;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(0, 217, 255, 0.03) 0px,
+                    rgba(0, 217, 255, 0.03) 1px,
+                    transparent 1px,
+                    transparent 2px
+                );
+            pointer-events: none;
+            z-index: 1;
         }
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, rgba(15, 22, 41, 0.95) 0%, rgba(26, 31, 58, 0.95) 100%);
+            border-radius: 2px;
+            border: 2px solid rgba(0, 217, 255, 0.5);
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.3), inset 0 0 20px rgba(0, 217, 255, 0.1);
             overflow: hidden;
+            position: relative;
+            z-index: 2;
         }
 
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 40px;
-            text-align: center;
+            background: linear-gradient(180deg, rgba(0, 217, 255, 0.08) 0%, rgba(26, 31, 58, 0.5) 100%);
+            border-bottom: 2px solid rgba(0, 217, 255, 0.3);
+            color: #00d9ff;
+            padding: 40px 40px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #b8860b, transparent);
         }
 
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            background: white;
-            margin: 0 auto 20px;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 217, 255, 0.3), rgba(0, 217, 255, 0.05));
             padding: 3px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 3px solid #b8860b;
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.6), inset 0 0 20px rgba(184, 134, 11, 0.3);
+            font-size: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .header-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2em;
+            margin: 0 0 5px 0;
+            color: #00d9ff;
+            text-shadow: 0 0 20px rgba(0, 217, 255, 0.8);
+            letter-spacing: 2px;
         }
 
         .tagline {
-            font-size: 1.2em;
-            opacity: 0.95;
-            margin-bottom: 5px;
+            font-size: 1em;
+            opacity: 0.9;
+            margin: 0;
+            color: #b8860b;
+            letter-spacing: 1px;
         }
 
         nav {
-            background: #f8f9fa;
+            background: rgba(15, 22, 41, 0.8);
             padding: 0;
             display: flex;
             flex-wrap: wrap;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 2px solid rgba(0, 217, 255, 0.3);
+            border-top: 1px solid rgba(184, 134, 11, 0.2);
         }
 
         nav button {
             flex: 1;
             padding: 15px;
-            background: none;
-            border: none;
+            background: transparent;
+            border: 1px solid transparent;
             font-size: 1em;
             cursor: pointer;
             transition: all 0.3s ease;
-            color: #333;
+            color: #00d9ff;
             font-weight: 500;
+            font-family: 'Courier Prime', monospace;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        nav button::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00d9ff, #b8860b);
+            transition: width 0.3s ease;
         }
 
         nav button:hover {
-            background: #667eea;
-            color: white;
+            background: rgba(0, 217, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+            color: #b8860b;
+        }
+
+        nav button:hover::before {
+            width: 100%;
         }
 
         nav button.active {
-            background: #667eea;
-            color: white;
-            border-bottom: 3px solid #764ba2;
+            background: rgba(0, 217, 255, 0.15);
+            color: #b8860b;
+            box-shadow: 0 0 25px rgba(0, 217, 255, 0.5), inset 0 0 10px rgba(0, 217, 255, 0.2);
+        }
+
+        nav button.active::before {
+            width: 100%;
         }
 
         .content {
             padding: 40px;
+            background: linear-gradient(135deg, rgba(15, 22, 41, 0.6) 0%, rgba(26, 31, 58, 0.6) 100%);
         }
 
         .section {
             display: none;
-            animation: fadeIn 0.5s ease;
+            animation: scanIn 0.8s ease;
         }
 
         .section.active {
             display: block;
         }
 
-        @keyframes fadeIn {
+        @keyframes scanIn {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: scaleY(0.95);
+                clip-path: inset(50% 0 50% 0);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: scaleY(1);
+                clip-path: inset(0 0 0 0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(0, 217, 255, 0.8);
+            }
+            50% {
+                text-shadow: 0 0 40px rgba(0, 217, 255, 1);
             }
         }
 
         h2 {
-            color: #667eea;
+            color: #00d9ff;
             margin-bottom: 20px;
             font-size: 2em;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 2px solid rgba(0, 217, 255, 0.5);
             padding-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 20px rgba(0, 217, 255, 0.6);
+            letter-spacing: 2px;
         }
 
         h3 {
-            color: #764ba2;
+            color: #b8860b;
             margin-top: 20px;
             margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
         }
 
         .info-item {
             margin-bottom: 20px;
             padding: 15px;
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            border-radius: 5px;
+            background: rgba(0, 217, 255, 0.05);
+            border-left: 4px solid #b8860b;
+            border-radius: 2px;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.1);
         }
 
         .info-item strong {
-            color: #667eea;
+            color: #b8860b;
+        }
+
+        .info-item p {
+            color: #00d9ff;
         }
 
         ul {
@@ -143,33 +248,42 @@
 
         li {
             margin-bottom: 8px;
+            color: #00d9ff;
+        }
+
+        p {
+            color: #00d9ff;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
-            background: white;
-            border-radius: 5px;
+            background: rgba(0, 217, 255, 0.03);
+            border-radius: 2px;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.1);
         }
 
         th {
-            background: #667eea;
-            color: white;
+            background: rgba(0, 217, 255, 0.15);
+            color: #b8860b;
             padding: 12px;
             text-align: left;
             font-weight: 600;
+            border-bottom: 2px solid rgba(0, 217, 255, 0.3);
         }
 
         td {
             padding: 12px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.15);
+            color: #00d9ff;
         }
 
         tr:hover {
-            background: #f8f9fa;
+            background: rgba(0, 217, 255, 0.1);
+            box-shadow: inset 0 0 10px rgba(0, 217, 255, 0.1);
         }
 
         .hobbies-grid {
@@ -180,17 +294,39 @@
         }
 
         .hobby-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: rgba(0, 217, 255, 0.08);
+            color: #00d9ff;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 2px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 217, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hobby-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
+            transition: all 0.3s ease;
+            pointer-events: none;
         }
 
         .hobby-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.5), inset 0 0 15px rgba(184, 134, 11, 0.2);
+            border-color: #b8860b;
+        }
+
+        .hobby-card:hover h3 {
+            color: #b8860b;
+            animation: glow 2s infinite;
         }
 
         .hobby-icon {
@@ -199,11 +335,16 @@
         }
 
         footer {
-            background: #f8f9fa;
+            background: rgba(15, 22, 41, 0.8);
             padding: 20px;
             text-align: center;
-            color: #666;
-            border-top: 1px solid #ddd;
+            color: #00d9ff;
+            border-top: 2px solid rgba(0, 217, 255, 0.3);
+        }
+
+        footer p {
+            color: #b8860b;
+            font-size: 0.9em;
         }
 
         .skill-bar {
@@ -213,28 +354,153 @@
         .skill-name {
             margin-bottom: 5px;
             font-weight: 600;
-            color: #333;
+            color: #b8860b;
         }
 
         .progress-bar {
             width: 100%;
             height: 25px;
-            background: #e0e0e0;
-            border-radius: 12px;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 2px;
             overflow: hidden;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            box-shadow: inset 0 0 10px rgba(0, 217, 255, 0.1);
         }
 
         .progress {
             height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
+            background: linear-gradient(90deg, rgba(0, 217, 255, 0.8), rgba(184, 134, 11, 0.8));
+            border-radius: 2px;
             transition: width 1s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: #fff;
             font-size: 0.8em;
             font-weight: bold;
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.6);
+        }
+
+        /* Projects Grid Layout */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .project-card {
+            background: rgba(0, 217, 255, 0.03);
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 217, 255, 0.3);
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.5), inset 0 0 20px rgba(184, 134, 11, 0.15);
+            border-color: #b8860b;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(184, 134, 11, 0.1) 100%);
+            color: #00d9ff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid rgba(0, 217, 255, 0.3);
+        }
+
+        .project-icon {
+            font-size: 2.5em;
+            margin-right: 15px;
+        }
+
+        .project-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 0;
+            color: #b8860b;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .project-body {
+            padding: 20px;
+            color: #00d9ff;
+        }
+
+        .project-body p {
+            color: #00d9ff;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .tech-tag {
+            background: rgba(0, 217, 255, 0.1);
+            color: #00d9ff;
+            padding: 5px 12px;
+            border-radius: 2px;
+            font-size: 0.85em;
+            font-weight: 500;
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 8px 15px;
+            background: rgba(0, 217, 255, 0.15);
+            color: #00d9ff;
+            text-decoration: none;
+            border-radius: 2px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 217, 255, 0.4);
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            background: rgba(184, 134, 11, 0.2);
+            color: #b8860b;
+            border-color: #b8860b;
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.4);
+            transform: translateX(2px);
         }
 
         @media (max-width: 768px) {
@@ -260,12 +526,15 @@
     <div class="container">
         <header>
             <div class="profile-img">👩‍💼</div>
-            <h1>S SAI SUSMITHA</h1>
-            <p class="tagline">B.Tech Student | Technology Enthusiast | Problem Solver</p>
+            <div class="header-info">
+                <h1>S SAI SUSMITHA</h1>
+                <p class="tagline">B.Tech Student | Technology Enthusiast</p>
+            </div>
         </header>
 
         <nav>
             <button class="nav-btn active" onclick="showSection('about')">About</button>
+            <button class="nav-btn" onclick="showSection('projects')">Projects</button>
             <button class="nav-btn" onclick="showSection('career')">Career</button>
             <button class="nav-btn" onclick="showSection('education')">Education</button>
             <button class="nav-btn" onclick="showSection('college')">College</button>
@@ -284,11 +553,11 @@
                 </div>
                 
                 <h3>Professional Summary</h3>
-                <p>Enthusiastic and dedicated B.Tech student with a strong academic record and interest in technology. Seeking opportunities to apply my technical knowledge, enhance my practical skills, and contribute effectively to organizational growth while continuously learning and improving.</p>
+                <p>Enthusiastic and dedicated B.Tech student with a strong academic record and passion for technology. Seeking opportunities to apply technical knowledge, enhance practical skills, and contribute effectively to organizational growth while continuously learning and improving.</p>
 
                 <h3>Technical Skills</h3>
                 <div class="skill-bar">
-                    <div class="skill-name">Java</div>
+                    <div class="skill-name">Java Programming</div>
                     <div class="progress-bar">
                         <div class="progress" style="width: 85%;">85%</div>
                     </div>
@@ -300,7 +569,7 @@
                     </div>
                 </div>
                 <div class="skill-bar">
-                    <div class="skill-name">HTML & Web Development</div>
+                    <div class="skill-name">Web Development (HTML/CSS/JS)</div>
                     <div class="progress-bar">
                         <div class="progress" style="width: 82%;">82%</div>
                     </div>
@@ -309,6 +578,183 @@
                     <div class="skill-name">Problem Solving</div>
                     <div class="progress-bar">
                         <div class="progress" style="width: 90%;">90%</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section">
+                <h2>Projects & Portfolio</h2>
+                
+                <p style="margin-bottom: 20px; color: #00d9ff;">Here are some of my recent projects showcasing technical skills and problem-solving abilities:</p>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <span class="project-icon">👤</span>
+                            </div>
+                            <h3 class="project-title">Personal Portfolio</h3>
+                        </div>
+                        <div class="project-body">
+                            <p><strong>Description:</strong> Interactive portfolio website with responsive design and modern UI showcasing technical projects and skills.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <p><strong>Key Features:</strong></p>
+                            <ul style="margin-left: 15px; font-size: 0.9em;">
+                                <li>Responsive design</li>
+                                <li>Smooth animations</li>
+                                <li>Multi-section navigation</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Live</a>
+                                <a href="#" class="project-link">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <span class="project-icon">📋</span>
+                            </div>
+                            <h3 class="project-title">Form Validation System</h3>
+                        </div>
+                        <div class="project-body">
+                            <p><strong>Description:</strong> Comprehensive form processing with real-time validation, image upload, and dynamic data display system.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">DOM API</span>
+                                <span class="tech-tag">FileReader</span>
+                            </div>
+                            <p><strong>Key Features:</strong></p>
+                            <ul style="margin-left: 15px; font-size: 0.9em;">
+                                <li>Real-time input validation</li>
+                                <li>Image upload & preview</li>
+                                <li>Dynamic data rendering</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Live</a>
+                                <a href="#" class="project-link">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <span class="project-icon">📐</span>
+                            </div>
+                            <h3 class="project-title">Web Layout Systems</h3>
+                        </div>
+                        <div class="project-body">
+                            <p><strong>Description:</strong> Professional layout implementations using modern CSS frameworks and responsive design patterns.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">CSS Grid</span>
+                                <span class="tech-tag">Flexbox</span>
+                                <span class="tech-tag">Responsive</span>
+                            </div>
+                            <p><strong>Key Features:</strong></p>
+                            <ul style="margin-left: 15px; font-size: 0.9em;">
+                                <li>Grid-based layouts</li>
+                                <li>Flex container design</li>
+                                <li>Mobile optimization</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Live</a>
+                                <a href="#" class="project-link">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <span class="project-icon">☕</span>
+                            </div>
+                            <h3 class="project-title">JAVA APPLICATIONS</h3>
+                        </div>
+                        <div class="project-body">
+                            <p><strong>PROTOCOL:</strong> Object-oriented Java applications demonstrating design patterns, data structures, and algorithmic solutions.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">OOP</span>
+                                <span class="tech-tag">Algorithms</span>
+                            </div>
+                            <p><strong>≣ CORE MODULES:</strong></p>
+                            <ul style="margin-left: 15px; font-size: 0.9em;">
+                                <li>Class architecture design</li>
+                                <li>Data structure implementation</li>
+                                <li>Algorithm optimization</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="#" class="project-link">► VIEW</a>
+                                <a href="#" class="project-link">► CODE</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <span class="project-icon">🐍</span>
+                            </div>
+                            <h3 class="project-title">PYTHON PROTOCOLS</h3>
+                        </div>
+                        <div class="project-body">
+                            <p><strong>PROTOCOL:</strong> Python-based solutions for data processing, automation, and computational problem-solving.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Data Processing</span>
+                                <span class="tech-tag">Automation</span>
+                            </div>
+                            <p><strong>≣ CORE MODULES:</strong></p>
+                            <ul style="margin-left: 15px; font-size: 0.9em;">
+                                <li>Data manipulation systems</li>
+                                <li>Automation scripts</li>
+                                <li>Computational algorithms</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="#" class="project-link">► VIEW</a>
+                                <a href="#" class="project-link">► CODE</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <span class="project-icon">🌐</span>
+                            </div>
+                            <h3 class="project-title">FULL-STACK DEVELOPMENT</h3>
+                        </div>
+                        <div class="project-body">
+                            <p><strong>PROTOCOL:</strong> Complete web development implementations combining frontend UI, backend logic, and database integration.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <p><strong>≣ CORE MODULES:</strong></p>
+                            <ul style="margin-left: 15px; font-size: 0.9em;">
+                                <li>Frontend architecture</li>
+                                <li>Interactive features</li>
+                                <li>Full integration systems</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="#" class="project-link">► VIEW</a>
+                                <a href="#" class="project-link">► CODE</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -361,8 +807,8 @@
                 <ul>
                     <li>Java - Object-oriented programming and application development</li>
                     <li>Python - Data processing and automation scripts</li>
-                    <li>HTML - Web markup and structure</li>
-                    <li>Basic Web Development - Creating user interfaces</li>
+                    <li>HTML & CSS - Web markup and styling</li>
+                    <li>JavaScript - Web development and DOM manipulation</li>
                     <li>Problem Solving - Algorithm design and implementation</li>
                 </ul>
 
@@ -478,7 +924,7 @@
         </div>
 
         <footer>
-            <p>&copy; 2024 S Sai Susmitha | B.Tech Student & Technology Enthusiast | All Rights Reserved</p>
+            <p>&copy; 2024 S SAI SUSMITHA | B.Tech Student & Technology Enthusiast | All Rights Reserved</p>
         </footer>
     </div>
 

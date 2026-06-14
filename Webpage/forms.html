@@ -3,68 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Driving License Form</title>
-</head>
+    <title>Responsive form</title>
+    </head>
 <body>
-
     <h1>Driving License</h1>
-
     <form id="details">
-
         <label>Name:</label>
         <input type="text" id="name" required>
         <br><br>
-
         <label>Email:</label>
-        <input type="email" id="email" required>
+        <input type="email" id="mail" required>
         <br><br>
-
-        <label>Mobile Number:</label>
-        <input type="tel" id="Mobile" required>
+        <label>DOB:</label>
+        <input type="date" id="dob" required>
         <br><br>
-
-        <label>Age:</label>
-        <input type="number" id="Age" required>
-        <br><br>
-
         <label>Gender:</label>
-        <input type="text" id="Gender" required>
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
         <br><br>
-
+        <label>Phone no:</label>
+        <input type="number" id="phone" required><br><br>
+        <label>Documents:</label>
+        <input type="checkbox" name="documents" value="Pollution Certificate"> Pollution Certificate
+        <input type="checkbox" name="documents" value="RC Book"> RC Book
+        <br><br>
+        <label>Age:</label>
+        <input type="number" id="age" required>
+        <br><br>
         <label>Address:</label>
-        <input type="text" id="Address" required>
+        <input type="text" id="address" required>
         <br><br>
-
-        <label>Photo:</label>
+        <label>Photo</label>
         <input type="file" id="image" accept="image/*" required>
         <br><br>
-
         <button type="submit">Submit</button>
-
     </form>
-
-  <hr>
-
-<h2>License Details</h2>
-
-<div class="license-container">
-
-    <div class="license-info">
-        <p id="p1"></p>
-        <p id="p2"></p>
-        <p id="p3"></p>
-        <p id="p4"></p>
-        <p id="p5"></p>
-        <p id="p6"></p>
-    </div>
-
-    <div class="license-photo">
-        <img id="dp" width="200" height="200" alt="Uploaded Photo">
-    </div>
-
-</div>
-
-    <script src="Forms.js"></script>
-    <link rel="stylesheet" href="forms.css">
+    <h2>License Details</h2>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+    <p id="p5"></p>
+    <p id="p6"></p>
+    <img id="dp" width="200px" >
+<script src="Form.js" ></script>
 </body>
 </html>
